@@ -1,0 +1,114 @@
+ANSWER 1:-In a try-except statement, the 'else' block is an optional block of code 
+that is executed if no exceptions are raised within the corresponding try block. The purpose of the 'else'
+block is to define the code that should run when the try block completes successfully without any exceptions being raised.
+
+ANSWER 2:-Yes, a try-except block can be nested inside another try-except block. This is known as 
+nested exception handling and allows for handling exceptions at 
+different levels of code execution. Each nested try-except block can handle specific exceptions independently.
+
+
+ANSWER 3:-In Python, you can create a custom exception class by defining a new class that inherits from the built-in Exception class
+or any of its subclasses. By creating a custom exception class, you can define specific behavior, attributes, and messages for your custom exceptions.
+
+
+ANSWER 4:-
+TypeError: Raised when an operation or function is applied to an object of an inappropriate type.
+
+ValueError: Raised when a function receives an argument of the correct type but an inappropriate value.
+
+NameError: Raised when a local or global name is not found.
+
+IndexError: Raised when an index is out of range for a sequence (e.g., list, tuple, string).
+
+
+ANSWER 5:-
+Logging in Python is a technique used to record and store log messages during the execution of a program. 
+The logging module in Python provides a flexible framework for generating log messages of 
+varying severity levels and directing them to different outputs such as the console, files, or external logging services.
+
+
+ANSWER 6:-
+In Python logging, log levels are used to categorize and prioritize log messages based on their severity or importance.
+ The logging module provides several built-in log levels that can be used to 
+control which log messages are displayed or recorded. Each log level corresponds to a numeric value and has a specific purpose and usage.
+
+
+ANSWER 7:-
+Python logging, log formatters are used to define the structure and layout of log messages. They allow customization of the log message format by
+specifying the content and formatting of different parts of the log message, such as the timestamp, log level, module name, or the actual log message 
+itself.
+
+The logging module provides the Formatter class, which serves as a base class for creating custom log formatters.
+
+
+ANSWER 8:-
+import logging
+logging.basicConfig(level=logging.DEBUG, format="%(asctime)s - %(name)s - %(levelname)s - %(message)s")
+logger = logging.getLogger("my_logger")
+logger.setLevel(logging.DEBUG)
+file_handler = logging.FileHandler("log_file.log")
+console_handler = logging.StreamHandler()
+
+logger.addHandler(file_handler)
+logger.addHandler(console_handler)
+formatter = logging.Formatter("%(asctime)s - %(name)s - %(levelname)s - %(message)s")
+
+file_handler.setFormatter(formatter)
+console_handler.setFormatter(formatter)
+
+
+ANSWER 9:-print statements output directly to the console or standard output.
+The logging module provides flexibility to direct log messages to various outputs, 
+such as the console, files, external logging services, or databases. 
+It allows you to configure different handlers to control where log messages are sent.
+
+
+ANSWER 10:-
+import logging
+logging.basicConfig(
+    filename="app.log",
+    level=logging.INFO,
+    format="%(asctime)s - %(levelname)s - %(message)s",
+)
+
+logging.info("Hello, World!")
+
+ANSWER 11:-
+import logging
+import datetime
+
+# Configure logging
+logging.basicConfig(
+    level=logging.ERROR,
+    format="%(asctime)s - %(levelname)s - %(message)s",
+)
+
+# Create a file handler
+file_handler = logging.FileHandler("errors.log")
+file_handler.setLevel(logging.ERROR)
+
+# Create a formatter for the file handler
+file_formatter = logging.Formatter("%(asctime)s - %(levelname)s - %(message)s")
+file_handler.setFormatter(file_formatter)
+
+# Add the file handler to the logger
+logger = logging.getLogger()
+logger.addHandler(file_handler)
+
+try:
+    # Your program code goes here
+    # ...
+
+    # Raise an exception for testing
+    raise Exception("This is an example exception")
+
+except Exception as e:
+    # Log the error message to the console and file
+    error_message = f"{type(e).__name__}: {e}"
+    logging.error(error_message)
+
+
+
+
+
+
